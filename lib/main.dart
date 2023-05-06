@@ -10,11 +10,35 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '리 리, 세계 유랑자',
-      home: Grade(),
+      home: OnBoardingPage(),
     );
   }
 }
 
+class OnBoardingPage extends StatelessWidget {
+  const OnBoardingPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Main page'),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text('Main screen',
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Go to the onboarding page'),
+            ),
+          ]),
+      )
+    );
+  }
+}
 
 class Grade extends StatelessWidget {
   const Grade({super.key});
@@ -36,7 +60,7 @@ class Grade extends StatelessWidget {
           }, // 앱바 왼쪽에 아이콘 추가
         ),
         IconButton(
-          icon : Icon(Icons.search), 
+          icon : Icon(Icons.reviews), 
           onPressed: () {
             print('Search button is clicked');
           }, // 앱바 왼쪽에 아이콘 추가
@@ -106,7 +130,7 @@ class Grade extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0),
+        padding: EdgeInsets.fromLTRB(30.0, 70.0, 0.0, 0.0),
         child: Column( // 자식 위젯들을 세로로 배치
           crossAxisAlignment: CrossAxisAlignment.start, // 왼쪽 시작점 정렬
           children: [
