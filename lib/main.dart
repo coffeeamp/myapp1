@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; // 필수
+import 'package:myapp1/onboarding.dart';
 
 void main() => runApp(const MyApp());
 
@@ -7,16 +8,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return const MaterialApp(
+      // debugShowCheckedModeBanner: false,
       title: '리 리, 세계 유랑자',
       home: OnBoardingPage(),
     );
   }
 }
 
-class OnBoardingPage extends StatelessWidget {
-  const OnBoardingPage({super.key});
+class Mypage extends StatelessWidget {
+  const Mypage({super.key});
 
   @override
   Widget build(BuildContext context) {
