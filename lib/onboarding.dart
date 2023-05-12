@@ -12,19 +12,19 @@ class OnBoardingPage extends StatelessWidget {
         PageViewModel(
           title: '히오스를 아직 하는 유인원',
           body: '우기끽1',
-          image: Image.asset('image/page1.png'),
+          image: Image.asset('image/onboarding_page1.png'),
           decoration: getpageDecoration()
         ),
         PageViewModel(
           title: '히오스를 아직 하는 유인원',
           body: '우기끽2',
-          image: Image.asset('image/page2.png'),
+          image: Image.asset('image/onboarding_page2.png'),
           decoration: getpageDecoration()
         ),
         PageViewModel(
           title: '히오스를 아직 하는 유인원',
           body: '우기끽3',
-          image: Image.asset('image/page3.png'),
+          image: Image.asset('image/onboarding_page3.png'),
           decoration: getpageDecoration()
         ),
         
