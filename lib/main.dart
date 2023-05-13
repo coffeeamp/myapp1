@@ -12,32 +12,25 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       // debugShowCheckedModeBanner: false,
       title: '리 리, 세계 유랑자',
-      home: ListViewPage(),
+      home: Mypage(),
     );
   }
 }
 
-class Mypage extends StatelessWidget {
+class Mypage extends StatefulWidget {
   const Mypage({super.key});
 
+  @override
+  State<Mypage> createState() => _MypageState();
+}
+
+class _MypageState extends State<Mypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main page'),
+        title: const Text('리스트뷰_테스트'),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Text('Main screen',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Go to the onboarding page'),
-            ),
-          ]),
-      )
     );
   }
 }
@@ -392,7 +385,6 @@ class ListViewPage extends StatefulWidget {
   @override
   State<ListViewPage> createState() => _ListViewPageState();
 }
-
 class _ListViewPageState extends State<ListViewPage> {
 
 
