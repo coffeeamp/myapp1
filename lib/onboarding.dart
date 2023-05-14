@@ -33,7 +33,7 @@ class OnBoardingPage extends StatelessWidget {
       done: const Text('Done'),
       onDone: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const Grade()),
+          MaterialPageRoute(builder: (context) => const Mainpage()),
         );
       }, // onpress 와 비슷한느낌
       next: const Icon(Icons.arrow_forward),

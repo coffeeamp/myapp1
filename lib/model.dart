@@ -1,8 +1,8 @@
 
-class Hero{
+class Heros{
   final String name;
   final String imgPath;
-  final String Role;
+  final String role;
 
-  Hero(this.name, this.imgPath, this.Role);
+  Heros(this.name, this.imgPath, this.role);
 }

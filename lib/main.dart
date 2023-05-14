@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart'; // 필수
-import 'package:myapp1/onboarding.dart';
+import 'package:myapp1/model.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,34 +9,93 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       // debugShowCheckedModeBanner: false,
       title: '리 리, 세계 유랑자',
-      home: Mypage(),
+      home: Mainpage(),
     );
   }
 }
 
 class Mypage extends StatefulWidget {
-  const Mypage({super.key});
-
+  Mypage({super.key});
   @override
   State<Mypage> createState() => _MypageState();
 }
 
 class _MypageState extends State<Mypage> {
+  
+  static List<String> heroName =[
+    '알렉스트라자',
+    '아나',
+    '안두인',
+    '아우리엘',
+    '첸',
+    '데커드',
+    '카라짐',
+    '리리',
+    '스투코프',
+    '화이트메인'
+  ];
+
+  static List<String> heroImagePath =[
+    'image/Alexstrasza.png',
+    'image/Ana.png',
+    'image/Anduin.png',
+    'image/Aurial.png',
+    'image/Chen.png',
+    'image/Deckard.png',
+    'image/karazim.png',
+    'image/Li_Li.png',
+    'image/Stukov.png',
+    'image/Whitemane.png',
+  ];
+
+  static List<String> heroRole =[
+    '지원가',
+    '지원가',
+    '지원가',
+    '지원가',
+    '투사',
+    '지원가',
+    '지원가',
+    '지원가',
+    '지원가',
+    '지원가'
+  ];
+
+  final List<Heros> herodata = List.generate(
+    heroRole.length, 
+    (index) => Heros(
+      heroName[index], heroImagePath[index], heroRole[index]));
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
-        title: const Text('리스트뷰_테스트'),
+        title: const Text('listveiw.builder_test'),
       ),
+      body: ListView.builder(
+        itemCount: herodata.length,
+        itemBuilder: (context, index){
+          return Card(
+            child: ListTile(
+              title: Text(
+                herodata[index].name
+                ),
+              leading: SizedBox(
+                height: 50, width: 50,
+                child: Image.asset(herodata[index].imgPath),
+              ),
+            ),
+          );
+        }),
     );
   }
 }
 
-class Grade extends StatelessWidget {
-  const Grade({super.key});
+class Mainpage extends StatelessWidget {
+  const Mainpage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -68,16 +127,16 @@ class Grade extends StatelessWidget {
           children: <Widget>[
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/히오스.webp'),
+                backgroundImage: AssetImage('assets/히오스.png'),
                 backgroundColor: Color.fromARGB(171, 0, 185, 71),
               ),
               otherAccountsPictures: [
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/히오스.webp'),
+                  backgroundImage: AssetImage('assets/히오스.png'),
                   backgroundColor: Colors.white,
                 ),
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/히오스.webp'),
+                  backgroundImage: AssetImage('assets/히오스.png'),
                   backgroundColor: Colors.white,
                 ),
               ],
@@ -95,9 +154,9 @@ class Grade extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.home,
+              leading: Icon(Icons.list_alt_rounded,
               color: Colors.grey[800],),
-              title: Text('Home'),
+              title: Text('List_Popup'),
               onTap: () {
                 print('Home is clicked');
                 Navigator.push(context, MaterialPageRoute(builder: (context) => ListViewPage()),);
@@ -106,11 +165,12 @@ class Grade extends StatelessWidget {
               trailing: Icon(Icons.add),
             ),
             ListTile(
-              leading: Icon(Icons.settings,
+              leading: Icon(Icons.filter_list,
               color: Colors.grey[800],),
-              title: Text('setting'),
+              title: Text('Listview_builderpage'),
               onTap: () {
                 print('setting is clicked');
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Mypage()),);
               },
               trailing: Icon(Icons.add),
             ),
@@ -149,7 +209,7 @@ class Grade extends StatelessWidget {
             ),
             Center(
               child: CircleAvatar(
-                backgroundImage: AssetImage('assets/리리.PNG'),
+                backgroundImage: AssetImage('assets/리리.png'),
                 radius: 65.0,
               ),
             ),
@@ -210,7 +270,7 @@ class Grade extends StatelessWidget {
             Row(
               children: <Widget>[
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/빠른발.webp'),
+                  backgroundImage: AssetImage('assets/빠른발.png'),
                   radius: 30,
                 ),
                 SizedBox(
@@ -234,7 +294,7 @@ class Grade extends StatelessWidget {
             Row(
               children: <Widget>[
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/허브차.webp'),
+                  backgroundImage: AssetImage('assets/허브차.png'),
                   radius: 30,
                 ),
                 SizedBox(
@@ -258,7 +318,7 @@ class Grade extends StatelessWidget {
             Row(
               children: <Widget>[
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/운룡.webp'),
+                  backgroundImage: AssetImage('assets/운룡.png'),
                   radius: 30,
                 ),
                 SizedBox(
@@ -282,7 +342,7 @@ class Grade extends StatelessWidget {
             Row(
               children: <Widget>[
                 CircleAvatar(
-                  backgroundImage: AssetImage('assets/실명의바람.webp'),
+                  backgroundImage: AssetImage('assets/실명의바람.png'),
                   radius: 30,
                 ),
                 SizedBox(
@@ -402,16 +462,16 @@ class _ListViewPageState extends State<ListViewPage> {
   ];
 
   var imageList = [
-    'image/Alexstrasza.webp',
-    'image/Ana.webp',
-    'image/Anduin.webp',
-    'image/Aurial.webp',
-    'image/Chen.webp',
-    'image/Deckard.webp',
-    'image/karazim.webp',
-    'image/Li_Li.webp',
-    'image/Stukov.webp',
-    'image/Whitemane.webp',
+    'image/Alexstrasza.png',
+    'image/Ana.png',
+    'image/Anduin.png',
+    'image/Aurial.png',
+    'image/Chen.png',
+    'image/Deckard.png',
+    'image/karazim.png',
+    'image/Li_Li.png',
+    'image/Stukov.png',
+    'image/Whitemane.png',
   ];
 
   var description = [
