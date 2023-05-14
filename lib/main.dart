@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart'; // 필수
+import 'package:myapp1/hero_page.dart';
 import 'package:myapp1/model.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -64,10 +66,13 @@ class _MypageState extends State<Mypage> {
     '지원가'
   ];
 
-  final List<Heros> herodata = List.generate(
+  final List<Herolist> herodata = List.generate(
     heroRole.length, 
-    (index) => Heros(
-      heroName[index], heroImagePath[index], heroRole[index]));
+    (index) => Herolist(
+      heroName[index], 
+      heroImagePath[index], 
+      heroRole[index])
+    );
   @override
   Widget build(BuildContext context) {
     
@@ -87,6 +92,11 @@ class _MypageState extends State<Mypage> {
                 height: 50, width: 50,
                 child: Image.asset(herodata[index].imgPath),
               ),
+              onTap: () {
+                print(herodata[index].name);
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => HeroPage(herolist: herodata[index],)));
+              },
             ),
           );
         }),
